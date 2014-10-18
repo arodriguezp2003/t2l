@@ -1,0 +1,40 @@
+<h2>Notes 
+<div style="float:right">
+
+<button class="btn btn-primary btn-sm" ng-click="showModal()"><span class="glyphicon glyphicon-plus"></span> Add Note</button>
+<div class="btn-group" ng-init="colorear=''">
+<form class="form-inline" role="form">
+<button class="btn btn-default btn-sm" ng-click="colorear = ''"><span class="glyphicon glyphicon-th"></span></button>
+<button class="btn btn-primary btn-sm" ng-click="colorear = 'primary'"><span class="glyphicon glyphicon-search"></span></button>
+<button class="btn btn-success btn-sm" ng-click="colorear = 'sucess'"><span class="glyphicon glyphicon-search"></span></button>
+<button class="btn btn-danger btn-sm" ng-click="colorear = 'danger'"><span class="glyphicon glyphicon-search"></span></button>
+<button class="btn btn-warning btn-sm" ng-click="colorear = 'warning'"><span class="glyphicon glyphicon-search"></span></button>
+
+<div class="input-group">
+<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+ <input ng-model="buscar" type="text" class="form-control form-sm" placeholder="find...">
+ </div>
+</form>
+</div>
+
+</div>
+</h2>
+<hr>
+<div class="col-md-12">
+	<div ui-sortable ng-model="notes">
+		<div ng-repeat="p in notes | filter: colorear | filter:buscar" 
+		class="col-md-4" >
+			<div class="panel panel-{{p.color}}" style="cursor:move" style="float:left">
+			  <div class="panel-heading">{{p.titulo}} 
+				<div style="float:right"><button ng-click="eliminar(p)" class="btn btn-{{p.color}} btn-xs"> <span class="glyphicon glyphicon-remove"></span></button></div>
+			  </div>
+			  <div class="panel-body">
+			    <div ng-bind-html="p.cuerpo"></div>
+			  </div>
+			    <div class="panel-footer ">
+			    	
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="modal-header">
+<button type="button" class="close" ng-click="cancel()">x</button>
+	<h3>Add Note</h3>
+</div>
+<div class="modal-body">
+<form >
+		<div class="form-group">
+			<label for="">Title</label>
+			<input ng-model="nuevoNote.titulo" type="text" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="">Body</label>
+			<div id="txtangular" text-angular  ng-model="nuevoNote.cuerpo"> </div>
+		
+
+		</div>
+		<div class="form-group">
+			<label for="">Color</label>
+			<div class="btn-group">
+			    <label class="btn btn-primary">
+			        <input   ng-model="nuevoNote.color" id="color"  type="radio" value="primary" >
+			    </label>
+			    <label class="btn btn-success">
+			        <input  ng-model="nuevoNote.color" id="color"  type="radio" value="success" >
+			    </label>
+			    <label class="btn btn-danger">
+			        <input  ng-model="nuevoNote.color"  id="color" type="radio" value="danger">
+			    </label>
+			    <label class="btn btn-warning">
+			        <input  ng-model="nuevoNote.color"  id="color" type="radio" value="warning" >
+			    </label>
+			</div>
+		</div>
+		<button class="btn btn-success" ng-click="salvarNuevoNote()">Add Note</button>
+</form>
+</div>
+<script>
+$(document).ready(function(){
+	$("#txtangular").find("button").each(function(index,data){ $(this).addClass("btn-xs")});
+});
+
+</script>
